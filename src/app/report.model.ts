@@ -1,15 +1,9 @@
 export class Report {
   constructor(
-    public name?: string,
+    public name: string = '',
     public format: string = 'Excel',
-    public emailTo?: string,
-    public scheduleType: ReportSchedule = new ReportSchedule('No repeat'),
-  ) {}
-}
-
-export class ReportSchedule {
-  constructor(
-    public type: string,
+    public emailTo: string = '',
+    public exportType: string = 'No repeat',
     public exportTime: string = ''
   ) {}
 }

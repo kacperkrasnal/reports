@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './schedule-picker.component.html',
 })
 export class SchedulePickerComponent {
-  @Input('scheduleType') schedule = ''
+  @Input('exportType') schedule = ''
   @Output() reportTimeEvent = new EventEmitter<string>();
 
   weekdays: string[] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -27,10 +27,10 @@ export class SchedulePickerComponent {
         break;
 
       case 'Weekly':
-        if (!weekValue || !timeValue) {
+        if (!weekValue) {
           break;
         }
-        this.reportTimeEvent.emit(`${weekValue} at ${timeValue}`)
+        this.reportTimeEvent.emit(`${weekValue} at ${timeValue ? timeValue : 'work'}`)
         break;
     }
   }

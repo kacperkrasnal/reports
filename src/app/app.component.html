@@ -45,7 +45,7 @@
             <input class="standard_radio"
                    (change)="changeReportTime()"
                    [value]="schedule"
-                   [(ngModel)]="newReport.scheduleType.type"
+                   [(ngModel)]="newReport.exportType"
                    name="scheduleType"
                    type="radio"/>
             <span>{{ schedule }}</span>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <app-schedule-picker (reportTimeEvent)="addReportTime($event)"
-                           [scheduleType]="newReport.scheduleType.type">
+                           [exportType]="newReport.exportType">
       </app-schedule-picker>
     </form>
     <footer class="modal_footer">
