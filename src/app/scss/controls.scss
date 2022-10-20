@@ -1,0 +1,95 @@
+.form_group {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+  margin: 1em 1em;
+  @include standard-font($fs-m, $semi-dark-color);
+  .form_label {
+    width: 16%;
+    margin-right: 8px;
+  }
+  .connector {
+    margin: 0 1.5em;
+  }
+}
+
+.input_text {
+  width: 78%;
+  padding: 9px;
+  border: 1.5px solid $shadow-color;
+
+  &:focus {
+    outline: none;
+    border: 1.5px solid $shadow-color;
+  }
+}
+
+.input_date {
+  width: 21%;
+  @media (max-width: 600px) {
+    width: 35%;
+  }
+}
+
+input[type="radio"] {
+  height: 1.2em;
+  width: 1.2em;
+  margin-right: 0.5rem;
+}
+
+.standard_radio {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0.2rem solid #fff;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px $semi-dark-color;
+
+  &:focus-visible {
+    outline-offset: 0;
+  }
+
+  &:hover {
+    border-width: 0;
+  }
+
+  &:checked {
+    box-shadow: 0 0 0 1px $dark-color;
+    background-color: $dark-color;
+    border-width: 0.2rem;
+  }
+}
+
+.radio_label {
+  display: inline-flex;
+  margin-right: 1em;
+  span {
+    position: relative;
+    bottom: -3px;
+  }
+}
+
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    background-color: #ffffff;
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid $shadow-color;
+    color: #555;
+    font-size: inherit;
+    padding: 8px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+input,
+select {
+  @include standard-font($fs-m, darken($light-color, 30%))
+}
+input::placeholder{
+  @include standard-font($fs-m, darken($light-color, 30%))
+}

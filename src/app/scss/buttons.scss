@@ -1,0 +1,28 @@
+@mixin buttons($primary: true) {
+  @include standard-font(13px, white);
+  padding: 8px 30px;
+  cursor: pointer;
+  margin-right: 1.5em;
+  @if $primary {
+    background-color: darken($dark-color, 10%);
+    border: 1px solid $semi-dark-color;
+    &:hover {
+      background-color: $dark-color;
+    }
+  } @else {
+    background-color: white;
+    color: $semi-dark-color;
+    border: 1px solid $semi-dark-color;
+    &:hover {
+      background-color: darken(white, 10%);
+    }
+  }
+}
+
+.button-primary {
+ @include buttons()
+}
+
+.button-secondary {
+  @include buttons(false)
+}

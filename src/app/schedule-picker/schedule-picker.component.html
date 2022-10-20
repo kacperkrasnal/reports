@@ -1,0 +1,38 @@
+<div class="form_group">
+  <ng-template [ngIf]="schedule == 'Specific Date'">
+    <label class="form_label">Date</label>
+    <input type="date"
+           #dateValue
+           (change)="reportTimeChanger(dateValue.value.toString(), timeValue.value.toString())"
+           class="input_text input_date"/>
+    <span class="connector">at</span>
+    <input type="time"
+           #timeValue
+           (change)="reportTimeChanger(dateValue.value.toString(), timeValue.value.toString())"
+           class="input_text input_date"/>
+  </ng-template>
+
+  <ng-template [ngIf]="schedule == 'Daily'">
+    <label class="form_label">Everyday at</label>
+    <input type="time"
+           #timeValue
+           (change)="reportTimeChanger('', timeValue.value.toString())"
+           class="input_text input_date"/>
+  </ng-template>
+
+  <ng-template [ngIf]="schedule == 'Weekly'">
+    <label class="form_label">Every</label>
+    <select #weekValue
+            (change)="reportTimeChanger('', timeValue.value.toString(), weekValue.value)">
+      <option [value]="weekday"
+              *ngFor="let weekday of weekdays">{{ weekday }}
+      </option>
+    </select>
+    <span class="connector">at</span>
+    <input type="time"
+           #timeValue
+           (change)="reportTimeChanger('', timeValue.value.toString(), weekValue.value)"
+           class="input_text input_date"/>
+  </ng-template>
+</div>
+
