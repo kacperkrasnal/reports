@@ -26,3 +26,8 @@
 .button-secondary {
   @include buttons(false)
 }
+ .button-navigation {
+   @include buttons(false);
+   @include standard-font(18px, $semi-dark-color);
+   border-radius: 25px;
+ }

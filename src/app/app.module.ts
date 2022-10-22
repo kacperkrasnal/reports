@@ -5,11 +5,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { ReportRepository } from "./report.repository";
 import { AppComponent } from './app.component';
 import { SchedulePickerComponent } from './schedule-picker/schedule-picker.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SchedulePickerComponent
+    SchedulePickerComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

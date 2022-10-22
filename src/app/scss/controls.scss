@@ -93,3 +93,11 @@ select {
 input::placeholder{
   @include standard-font($fs-m, darken($light-color, 30%))
 }
+
+input.ng-dirty.ng-invalid { border: 1px solid #ff0000 }
+
+.error_message {
+  margin: 1em 1em;
+  text-align: center;
+  @include standard-font($fs-m, $semi-dark-color)
+}

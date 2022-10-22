@@ -14,14 +14,63 @@ body {
 .container {
   width: 100%;
   height: 90vh;
+  margin-top: 70px;
+}
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin even-shadows($shadow-size, $shadow-color) {
-  -webkit-box-shadow: 0 0 $shadow-size 0 $shadow-color;
-  -moz-box-shadow: 0 0 $shadow-size 0 $shadow-color;
-  box-shadow: 0 0 $shadow-size 0 $shadow-color;
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-bottom: 5px solid $semi-dark-color;
+  background-color:$dark-color;
+
+  .nav_title {
+    margin-left: 20px;
+    @include standard-font(24px, $light-color)
+  }
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  td, th {
+  border: 1px solid $semi-dark-color;
+  text-align: left;
+  padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: $light-color;
+  }
+
+  th {
+    @include standard-font(16px, $dark-color)
+  }
+  td {
+    @include standard-font(14px, $semi-dark-color)
+  }
+
+  @media (max-width: 600px) {
+    th {
+      @include standard-font(11px, $dark-color)
+    }
+    td {
+      @include standard-font(11px, $semi-dark-color)
+    }
+  }
+}
+
+ul {
+  @include standard-font(12px, $semi-dark-color)
+}

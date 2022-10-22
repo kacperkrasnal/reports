@@ -1,65 +1,31 @@
-<div class="container">
-
-  <div class="modal">
-    <header class="modal_header">
-      <span class="modal_header_title">Export Report</span>
-    </header>
-    <form>
-      <div class="form_group">
-        <label class="form_label">Report name</label>
-        <input class="input_text"
-               [(ngModel)]="newReport.name"
-               name="name"
-               type="text"
-               required
-               placeholder="Shareable Report"/>
-      </div>
-
-      <div class="form_group">
-        <label class="form_label">Format</label>
-        <div class="radio_group">
-          <label *ngFor="let format of formats" class="radio_label">
-            <input class="standard_radio"
-                   [value]="format"
-                   [(ngModel)]="newReport.format"
-                   name="format"
-                   type="radio"/>
-            <span>{{ format }}</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="form_group">
-        <label class="form_label">E-mail to</label>
-        <input class="input_text"
-               [(ngModel)]="newReport.emailTo"
-               name="emailTo"
-               type="email"
-               placeholder="client@company.com" />
-      </div>
-
-      <div class="form_group">
-        <label class="form_label">Schedule</label>
-        <div class="radio_group">
-          <label *ngFor="let schedule of schedules" class="radio_label">
-            <input class="standard_radio"
-                   (change)="changeReportTime()"
-                   [value]="schedule"
-                   [(ngModel)]="newReport.exportType"
-                   name="scheduleType"
-                   type="radio"/>
-            <span>{{ schedule }}</span>
-          </label>
-        </div>
-      </div>
-      <app-schedule-picker (reportTimeEvent)="addReportTime($event)"
-                           [exportType]="newReport.exportType">
-      </app-schedule-picker>
-    </form>
-    <footer class="modal_footer">
-      <button class="button-secondary" type="button">Cancel</button>
-      <button class="button-primary" type="submit" (click)="addReport(newReport)">OK</button>
-    </footer>
+<create-report-modal
+  (modalSwitcher)="modalSwitcher()"
+  *ngIf="modalOpen"></create-report-modal>
+<nav>
+  <div class="nav_title">
+    Reports
   </div>
+  <div class="button-navigation" (click)="modalSwitcher()">
+    Create report
+  </div>
+</nav>
+<div class="container">
+  <table>
+    <tr>
+      <th>Report name</th>
+      <th>Format</th>
+      <th>Email to</th>
+      <th>Type</th>
+      <th>Time</th>
+    </tr>
 
+    <tr *ngFor="let report of reports">
+      <td>{{ report.name }}</td>
+      <td>{{ report.format }}</td>
+      <td>{{ report.emailTo }}</td>
+      <td>{{ report.exportType }}</td>
+      <td>{{ report.exportTime }}</td>
+    </tr>
+  </table>
 </div>
+

@@ -1,0 +1,88 @@
+<div class="modal_create">
+
+  <div class="modal">
+    <header class="modal_header">
+      <span class="modal_header_title">Export Report</span>
+    </header>
+    <form novalidate #form="ngForm" (ngSubmit)="submitForm(form)">
+      <div class="form_group">
+        <label class="form_label">Report name</label>
+        <input class="input_text"
+               [(ngModel)]="newReport.name"
+               #name="ngModel"
+               name="name"
+               type="text"
+               required
+               minlength="5"
+               placeholder="Shareable Report"/>
+      </div>
+      <ul class="text-danger list-unstyled" *ngIf="name.dirty && name.invalid">
+          <li *ngIf="name.errors?.['required']">
+            Please enter report name
+          </li>
+          <li *ngIf="name.errors?.['minlength']">
+            Report name should be min.3 character long.
+          </li>
+        </ul>
+
+      <div class="form_group">
+        <label class="form_label">Format</label>
+        <div class="radio_group">
+          <label *ngFor="let format of formats" class="radio_label">
+            <input class="standard_radio"
+                   [value]="format"
+                   [(ngModel)]="newReport.format"
+                   name="format"
+                   type="radio"/>
+            <span>{{ format }}</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form_group">
+        <label class="form_label">E-mail to</label>
+        <input class="input_text"
+               [(ngModel)]="newReport.emailTo"
+               #email="ngModel"
+               required
+               name="emailTo"
+               type="email"
+               placeholder="client@company.com" />
+      </div>
+      <ul class="text-danger list-unstyled" *ngIf="email.dirty && email.invalid">
+          <li *ngIf="email.errors?.['required']">
+            Please enter report name
+          </li>
+        </ul>
+
+      <div class="form_group">
+        <label class="form_label">Schedule</label>
+        <div class="radio_group">
+          <label *ngFor="let schedule of schedules" class="radio_label">
+            <input class="standard_radio"
+                   (change)="changeReportTime()"
+                   [value]="schedule"
+                   [(ngModel)]="newReport.exportType"
+                   name="scheduleType"
+                   type="radio"/>
+            <span>{{ schedule }}</span>
+          </label>
+        </div>
+      </div>
+
+      <app-schedule-picker (reportTimeEvent)="addReportTime($event)"
+                           [exportType]="newReport.exportType">
+      </app-schedule-picker>
+
+      <span class="error_message" *ngIf="formSubmitted && form.invalid">There were some problems with the form.</span>
+
+      <footer class="modal_footer">
+        <button class="button-secondary"
+                (click)="this.modalSwitcher.emit()"
+                type="button">Cancel</button>
+        <button class="button-primary"
+                type="submit">OK</button>
+      </footer>
+    </form>
+  </div>
+</div>
