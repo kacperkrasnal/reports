@@ -12,7 +12,6 @@ export class AppComponent {
   There is no validation for the form. In real app validation have to exist.
   */
   newReport: Report = new Report();
-
   constructor(private repository: ReportRepository) {}
 
   addReport(report: Report) {

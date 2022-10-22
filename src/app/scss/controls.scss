@@ -19,8 +19,8 @@
   border: 1.5px solid $shadow-color;
 
   &:focus {
-    outline: none;
     border: 1.5px solid $shadow-color;
+    outline: none;
   }
 }
 
@@ -41,8 +41,8 @@ input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
   border: 0.2rem solid #fff;
-  background-color: var(--bg-color);
   border-radius: 50%;
+  background-color: var(--bg-color);
   box-shadow: 0 0 0 1px $semi-dark-color;
 
   &:focus-visible {
@@ -54,9 +54,9 @@ input[type="radio"] {
   }
 
   &:checked {
+    border-width: 0.2rem;
     box-shadow: 0 0 0 1px $dark-color;
     background-color: $dark-color;
-    border-width: 0.2rem;
   }
 }
 
