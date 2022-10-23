@@ -1,0 +1,25 @@
+[
+  {
+    "model": "reports.report",
+    "pk": "1",
+    "fields": {
+      "name": "Daily report",
+      "format": "CSV",
+      "emailTo": "user.company@coee.com",
+      "exportType": "Daily",
+      "exportTime": "12:00"
+    }
+  },
+  {
+    "model": "reports.report",
+    "pk": "2",
+    "fields": {
+      "name": "Weekly report",
+      "format": "Excel",
+      "emailTo": "john.company@coee.com",
+      "exportType": "Weekly",
+      "exportTime": "Tuesday at 15:45"
+    }
+  }
+]
+
